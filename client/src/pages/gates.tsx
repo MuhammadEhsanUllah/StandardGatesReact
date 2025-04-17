@@ -15,6 +15,8 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
+import { useCart } from '@/hooks/use-cart';
+import { useToast } from '@/hooks/use-toast';
 
 interface Product {
   id: number;
@@ -308,6 +310,46 @@ export default function Gates() {
       case "Automatic": setAccessPrice(550); break;
       default: setAccessPrice(75);
     }
+  };
+  
+  // Add cart functionality
+  const { addItem } = useCart();
+  const { toast } = useToast();
+  
+  // Handle adding configured gate to cart
+  const handleAddToCart = () => {
+    // Create a unique ID for the cart item
+    const id = Date.now();
+    
+    // Create the cart item from the current configuration
+    const cartItem = {
+      id,
+      type: 'gate' as const,
+      name: 'Custom Gate',
+      description: `${width}ft ${kitType === "Swing" ? "6in" : "0in"} Wide, ${kitType} Kit, ${panels} Panels, ${style} Style, ${pickets} Pickets, ${access} Access`,
+      price: totalPrice,
+      originalPrice: totalPrice + 300, // Example original price for savings display
+      image: 'https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942406_1280.jpg',
+      configuration: {
+        width,
+        kitType,
+        panels,
+        style,
+        pickets,
+        ironwood,
+        access
+      }
+    };
+    
+    // Add the item to the cart
+    addItem(cartItem);
+    
+    // Show success toast
+    toast({
+      title: "Added to cart!",
+      description: "Your custom gate has been added to your cart.",
+      duration: 3000,
+    });
   };
   
   // Sample gate products for the catalog section
@@ -665,7 +707,10 @@ export default function Gates() {
                 
                 {/* Order Button */}
                 <div className="flex items-center justify-between py-4">
-                  <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-6 text-lg rounded-md w-full">
+                  <Button 
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-6 text-lg rounded-md w-full"
+                    onClick={handleAddToCart}
+                  >
                     Add To Cart - ${totalPrice}
                   </Button>
                 </div>
