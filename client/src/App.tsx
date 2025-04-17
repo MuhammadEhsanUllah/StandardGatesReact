@@ -15,6 +15,7 @@ import CustomGate from "@/pages/custom-gate";
 import CustomFence from "@/pages/custom-fence";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { CartProvider } from "./hooks/use-cart";
 
 function Router() {
   return (
