@@ -8,6 +8,11 @@ import Gates from "@/pages/gates";
 import Fences from "@/pages/fences";
 import Features from "@/pages/features";
 import Gallery from "@/pages/gallery";
+import Parts from "@/pages/parts";
+import Extras from "@/pages/extras";
+import FenceAndGates from "@/pages/fence-and-gates";
+import CustomGate from "@/pages/custom-gate";
+import CustomFence from "@/pages/custom-fence";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
@@ -21,6 +26,11 @@ function Router() {
         <Route path="/fences" component={Fences} />
         <Route path="/features" component={Features} />
         <Route path="/gallery" component={Gallery} />
+        <Route path="/parts" component={Parts} />
+        <Route path="/extras" component={Extras} />
+        <Route path="/fence-and-gates" component={FenceAndGates} />
+        <Route path="/custom-gate" component={CustomGate} />
+        <Route path="/custom-fence" component={CustomFence} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

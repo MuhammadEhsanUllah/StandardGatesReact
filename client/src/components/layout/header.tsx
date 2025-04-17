@@ -13,6 +13,9 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/gates", label: "Gates" },
   { href: "/fences", label: "Fences" },
+  { href: "/fence-and-gates", label: "Fence & Gates" },
+  { href: "/parts", label: "Parts" },
+  { href: "/extras", label: "Extras" },
   { href: "/features", label: "Features" },
   { href: "/gallery", label: "Gallery" },
 ];
