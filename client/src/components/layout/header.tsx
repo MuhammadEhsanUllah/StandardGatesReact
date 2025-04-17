@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,8 +5,9 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import CartIcon from "@/components/cart-icon";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -22,7 +22,6 @@ const navItems = [
 
 export default function Header() {
   const [location] = useLocation();
-  const [cartItems] = useState(0);
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
@@ -56,14 +55,7 @@ export default function Header() {
                 Get Started
               </Button>
             </Link>
-            <Button variant="ghost" size="icon" className="relative text-slate-800 hover:text-primary transition-all">
-              <ShoppingCart className="h-6 w-6" />
-              {cartItems > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full text-xs text-white flex items-center justify-center">
-                  {cartItems}
-                </span>
-              )}
-            </Button>
+            <CartIcon />
             
             {/* Mobile Menu */}
             <Sheet>

@@ -13,6 +13,7 @@ import Extras from "@/pages/extras";
 import FenceAndGates from "@/pages/fence-and-gates";
 import CustomGate from "@/pages/custom-gate";
 import CustomFence from "@/pages/custom-fence";
+import Cart from "@/pages/cart";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { CartProvider } from "./hooks/use-cart";
@@ -32,6 +33,7 @@ function Router() {
         <Route path="/fence-and-gates" component={FenceAndGates} />
         <Route path="/custom-gate" component={CustomGate} />
         <Route path="/custom-fence" component={CustomFence} />
+        <Route path="/cart" component={Cart} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
@@ -42,8 +44,10 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
-      <Toaster />
+      <CartProvider>
+        <Router />
+        <Toaster />
+      </CartProvider>
     </QueryClientProvider>
   );
 }
