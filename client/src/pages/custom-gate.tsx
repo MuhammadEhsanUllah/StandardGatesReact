@@ -61,7 +61,7 @@ export default function CustomGate() {
                 <div className="relative">
                   {/* Gate Image */}
                   <img 
-                    src="https://images.unsplash.com/photo-1564643097515-efa9c2a7a7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    src="https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942406_1280.jpg"
                     alt="Gate Preview" 
                     className="w-full rounded-lg"
                   />
@@ -83,17 +83,17 @@ export default function CustomGate() {
               {/* Gallery Preview */}
               <div className="grid grid-cols-3 gap-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1560749003-f4b1e17e2dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                  src="https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942406_1280.jpg"
                   alt="Example Gate" 
                   className="w-full h-24 object-cover rounded-lg"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1617713244418-77b69fbe4f9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                  src="https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942406_1280.jpg"
                   alt="Example Gate" 
                   className="w-full h-24 object-cover rounded-lg"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1564643097515-efa9c2a7a7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                  src="https://cdn.pixabay.com/photo/2015/09/16/08/55/online-942406_1280.jpg"
                   alt="Example Gate" 
                   className="w-full h-24 object-cover rounded-lg"
                 />
