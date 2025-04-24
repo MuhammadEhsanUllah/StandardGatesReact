@@ -1,10 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CartIcon from "@/components/cart-icon";
@@ -13,7 +9,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/gates", label: "Gates" },
   { href: "/fences", label: "Fences" },
-  { href: "/fence-and-gates", label: "Fence & Gates" },
+  // { href: "/fence-and-gates", label: "Fence & Gates" },
   { href: "/parts", label: "Parts" },
   { href: "/extras", label: "Extras" },
   { href: "/features", label: "Features" },
@@ -30,7 +26,9 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center space-x-2 cursor-pointer">
-              <span className="text-2xl font-bold font-heading text-primary">SecureGates</span>
+              <span className="text-2xl font-bold font-heading text-primary">
+                SecureGates
+              </span>
             </div>
           </Link>
 
@@ -38,10 +36,12 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
-                <div className={cn(
-                  "font-heading text-slate-800 hover:text-primary transition-all font-medium cursor-pointer",
-                  location === item.href && "text-primary"
-                )}>
+                <div
+                  className={cn(
+                    "font-heading text-slate-800 hover:text-primary transition-all font-medium cursor-pointer",
+                    location === item.href && "text-primary"
+                  )}
+                >
                   {item.label}
                 </div>
               </Link>
@@ -51,12 +51,10 @@ export default function Header() {
           {/* Actions */}
           <div className="flex items-center space-x-4">
             <Link href="/gates">
-              <Button className="hidden md:block">
-                Get Started
-              </Button>
+              <Button className="hidden md:block">Get Started</Button>
             </Link>
             <CartIcon />
-            
+
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
@@ -68,18 +66,18 @@ export default function Header() {
                 <div className="flex flex-col mt-8 space-y-4">
                   {navItems.map((item) => (
                     <Link key={item.href} href={item.href}>
-                      <div className={cn(
-                        "font-heading text-slate-800 hover:text-primary transition-all font-medium px-3 py-2 rounded-md cursor-pointer",
-                        location === item.href && "bg-slate-100 text-primary"
-                      )}>
+                      <div
+                        className={cn(
+                          "font-heading text-slate-800 hover:text-primary transition-all font-medium px-3 py-2 rounded-md cursor-pointer",
+                          location === item.href && "bg-slate-100 text-primary"
+                        )}
+                      >
                         {item.label}
                       </div>
                     </Link>
                   ))}
                   <Link href="/gates">
-                    <Button className="w-full mt-4">
-                      Get Started
-                    </Button>
+                    <Button className="w-full mt-4">Get Started</Button>
                   </Link>
                 </div>
               </SheetContent>

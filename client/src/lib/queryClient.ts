@@ -106,7 +106,13 @@ export const getQueryFn: <T>(options: {
       const url = `${API_BASE_URL}${endpoint}`;
       
       const headers: HeadersInit = {};
-      if (import.meta.env.VITE_API_KEY) {
+      
+      // Check for API key in localStorage first, then fallback to environment variable
+      const storedApiKey = localStorage.getItem('API_KEY');
+      if (storedApiKey) {
+        headers["Authorization"] = `Bearer ${storedApiKey}`;
+      } else if (import.meta.env.VITE_API_KEY) {
+        // Fallback to environment variable if available
         headers["Authorization"] = `Bearer ${import.meta.env.VITE_API_KEY}`;
       }
       

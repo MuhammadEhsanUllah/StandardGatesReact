@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { Card } from '@/components/ui/card';
+import { useEffect, useRef } from "react";
+import { Card } from "@/components/ui/card";
 
 interface MapMarker {
   id: number;
@@ -26,7 +26,7 @@ export default function Map({ markers, latestInstallation }: MapProps) {
       markersRef.current.forEach((marker, index) => {
         if (marker) {
           setTimeout(() => {
-            marker.classList.add('animate-pulse');
+            marker.classList.add("animate-pulse");
           }, index * 100);
         }
       });
@@ -42,34 +42,39 @@ export default function Map({ markers, latestInstallation }: MapProps) {
     <Card className="p-4 md:p-8 relative overflow-hidden h-[500px]">
       {/* USA Map Background */}
       <div className="absolute inset-0 opacity-90">
-        <img 
-          src="https://images.unsplash.com/photo-1610559699534-0a37e6c31ec9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+        <img
+          src="/uk.jpg"
           alt="USA Map"
           className="w-full h-full object-cover opacity-20"
         />
-        
+
         {/* Map Markers */}
         {markers.map((marker, index) => (
-          <div 
+          <div
             key={marker.id}
-            ref={el => { if (el) markersRef.current[index] = el; }}
+            ref={(el) => {
+              if (el) markersRef.current[index] = el;
+            }}
             className="absolute w-3 h-3 bg-primary rounded-full shadow-md"
-            style={{ 
-              top: `${marker.lat}%`, 
+            style={{
+              top: `${marker.lat}%`,
               left: `${marker.lng}%`,
-              transform: 'translate(-50%, -50%)'
+              transform: "translate(-50%, -50%)",
             }}
           />
         ))}
-        
+
         {/* Latest Installation Highlight */}
         {latestInstallation && (
           <div className="absolute bottom-4 left-4 bg-white p-4 rounded-lg shadow-lg max-w-xs">
-            <div className="font-heading font-medium text-slate-900 mb-2">Latest Installation</div>
+            <div className="font-heading font-medium text-slate-900 mb-2">
+              Latest Installation
+            </div>
             <div className="text-sm text-slate-600">
               <span className="font-semibold">
                 {latestInstallation.city}, {latestInstallation.state}
-              </span> - {latestInstallation.product}
+              </span>{" "}
+              - {latestInstallation.product}
             </div>
             <div className="mt-2 text-xs text-green-500 font-medium">
               Completed {latestInstallation.completedAgo}
