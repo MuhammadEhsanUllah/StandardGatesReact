@@ -1,4 +1,10 @@
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  ReactNode,
+} from "react";
 
 type ApiKeyContextType = {
   apiKey: string | null;
@@ -14,7 +20,7 @@ export function ApiKeyProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Check if we have a stored API key in localStorage
-    const storedKey = localStorage.getItem('API_KEY');
+    const storedKey = localStorage.getItem("API_KEY");
     if (storedKey) {
       setApiKey(storedKey);
     }
@@ -23,7 +29,7 @@ export function ApiKeyProvider({ children }: { children: ReactNode }) {
 
   const handleSetApiKey = (key: string) => {
     // Store the API key in localStorage
-    localStorage.setItem('API_KEY', key);
+    localStorage.setItem("API_KEY", key);
     setApiKey(key);
   };
 
@@ -43,7 +49,7 @@ export function ApiKeyProvider({ children }: { children: ReactNode }) {
 export function useApiKey() {
   const context = useContext(ApiKeyContext);
   if (context === undefined) {
-    throw new Error('useApiKey must be used within an ApiKeyProvider');
+    throw new Error("useApiKey must be used within an ApiKeyProvider");
   }
   return context;
 }

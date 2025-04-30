@@ -135,7 +135,7 @@ export default function ProductGallery() {
                 <p className="text-slate-600 text-sm mb-4">
                   {product.description}
                 </p>
-                <div className="flex justify-between items-center">
+                {/* <div className="flex justify-between items-center">
                   <span className="text-primary font-heading font-bold">
                     ${product.price}
                   </span>
@@ -146,7 +146,7 @@ export default function ProductGallery() {
                   >
                     View Details
                   </Button>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           ))}
