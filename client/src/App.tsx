@@ -24,7 +24,7 @@ import { ApiKeyProvider } from "./hooks/use-api-key";
 import ApiKeyDialog from "./components/api-key-dialog";
 
 function Router() {
-  const [location] = useLocation(); // Get the current route/path
+  const [location] = useLocation();
   return (
     <>
       {/* Conditionally render Header and Footer based on the current route */}

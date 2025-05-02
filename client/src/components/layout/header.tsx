@@ -4,7 +4,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CartIcon from "@/components/cart-icon";
-// import Login from "@/components/Login"; // Your Google Login button
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -51,15 +50,19 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* <Link
+            <Link
               href=""
               className="hidden md:block flex items-center space-x-2 cursor-pointer"
             >
               {" "}
               <div style={{ textAlign: "center" }}>
-                <Login />
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Logo"
+                  className="h-8 w-8 rounded-full"
+                />
               </div>
-            </Link> */}
+            </Link>
             <Link href="/login">
               <Button className="hidden md:block">Get Started</Button>
             </Link>

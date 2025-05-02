@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import axios from "axios";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    phone: "",
+    username: "",
+    // phone: "",
   });
 
   const [errors, setErrors] = useState({
     email: "",
     password: "",
-    phone: "",
+    username: "",
+    // phone: "",
   });
 
   const validateForm = () => {
     let valid = true;
-    const newErrors = { email: "", password: "", phone: "" };
+    // const newErrors = { email: "", password: "", phone: "" };
+    const newErrors = { email: "", password: "", username: "" };
 
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Valid email is required";
@@ -29,10 +33,14 @@ export default function Signup() {
       valid = false;
     }
 
-    if (!formData.phone) {
-      newErrors.phone = "Phone number is required";
+    if (!formData.username) {
+      newErrors.username = "Username is required";
       valid = false;
     }
+    // if (!formData.phone) {
+    //   newErrors.phone = "Phone number is required";
+    //   valid = false;
+    // }
 
     setErrors(newErrors);
     return valid;
@@ -59,6 +67,27 @@ export default function Signup() {
               Create your account
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label
+                  htmlFor="username"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Username
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Your username"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+                {errors.username && (
+                  <p className="text-red-500 text-sm mt-1">{errors.username}</p>
+                )}
+              </div>
               <div>
                 <label
                   htmlFor="email"
@@ -101,7 +130,8 @@ export default function Signup() {
                   <p className="text-red-500 text-sm mt-1">{errors.password}</p>
                 )}
               </div>
-              <div>
+
+              {/* <div>
                 <label
                   htmlFor="phone"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -117,7 +147,7 @@ export default function Signup() {
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
                 )}
-              </div>
+              </div> */}
 
               <button
                 type="submit"
